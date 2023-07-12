@@ -51,7 +51,7 @@ function App(props: AppProps<{ initialReduxState: any }>) {
         <ConfigProvider
           theme={{
             token: {
-              colorPrimary: "#4CB134",
+              colorPrimary: "#FFCC21",
             },
             hashed: false,
           }}
