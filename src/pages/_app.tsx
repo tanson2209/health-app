@@ -1,21 +1,3 @@
-// import type { AppProps } from "next/app";
-// import { Provider } from "react-redux";
-// import { persistor, useStore } from "@/store";
-// import "../styles/globals.css";
-// import { PersistGate } from "redux-persist/integration/react";
-
-// function MyApp({ Component, pageProps }: AppProps) {
-//   const store = useStore(pageProps.initialReduxState);
-
-//   return (
-//     <Provider store={store}>
-//       <PersistGate loading={null} persistor={persistor}>
-//         <Component {...pageProps} />
-//       </PersistGate>
-//     </Provider>
-//   );
-// }
-
 // export default MyApp;
 import { persistor, useStore } from "@/store";
 import "antd/dist/reset.css";
