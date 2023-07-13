@@ -25,8 +25,8 @@ const ListRecord = memo(() => {
   ];
   return (
     <div className="grid grid-cols-3 container gap-12 w-full ">
-      {list.map((item) => (
-        <RecordCard item={item} />
+      {list.map((item, key) => (
+        <RecordCard item={item} key={key} />
       ))}
     </div>
   );

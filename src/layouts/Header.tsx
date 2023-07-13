@@ -20,47 +20,16 @@ const HeaderStyled = styled.header`
   } */
 `;
 
-const StyledSelectWrapper = styled.div`
-  .ant-select {
-    display: block;
+const StyledSelectWrapper = styled(Dropdown)`
+  .ant-dropdown .ant-dropdown-menu {
+    background-color: black !important;
+    color: white;
   }
 
-  .ant-select:focus-visible {
-    outline: unset;
-  }
-  .ant-select .ant-select-selector {
-    background-color: transparent;
-    color: #3a3a3c !important;
-    border: transparent;
-    font-size: 14px;
-  }
-
-  .ant-select .ant-select-arrow,
-  .ant-select-single.ant-select-open {
-    color: #3a3a3c;
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  .ant-select-single .ant-select-selector .ant-select-selection-item {
-    line-height: 16px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  .ant-select-single:not(.ant-select-customize-input)
-    .ant-select-selector
-    .ant-select-selection-search-input,
-  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-    height: 16px;
-    box-shadow: unset !important;
-  }
-  .ant-select-dropdown
-    .ant-select-item
-    .ant-select-item-option
-    .ant-select-item-option-active
-    .ant-select-item-option-selected {
-    background-color: transparent;
+  .ant-dropdown .ant-dropdown-menu,
+  .ant-dropdown-menu-submenu .ant-dropdown-menu {
+    background-color: black !important;
+    color: white;
   }
 `;
 
@@ -79,10 +48,9 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
     {
       key: "1",
       label: (
-        <Link href="/information">
+        <Link href="/" className="">
           <span className="flex py-3 w-[256px] pl-5 rounded-lg">
-            <Image src="/icons/building.svg" alt="" width={18} height={16} />
-            <span className="ml-5">{"trans.companyInformation"}</span>
+            <span className="ml-3 text-white">{"自分の記録"}</span>
           </span>
         </Link>
       ),
@@ -91,18 +59,46 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
       key: "2",
       label: (
         <span className="flex py-3 w-[256px] pl-5 rounded-lg">
-          <Image src="/icons/key.svg" alt="" width={18} height={16} />
-          <span className="ml-5">{"trans.changePasswor"}</span>
+          <span className="ml-3 text-white">{"体重グラフ"}</span>
         </span>
       ),
     },
     {
       key: "3",
       label: (
-        <Link href="/data-list">
+        <Link href="/">
           <span className="flex py-3 w-[256px] pl-5 rounded-lg">
-            <Image src="/icons/chart.svg" alt="" width={18} height={16} />
-            <span className="ml-5">{"trans.companyData"}</span>
+            <span className="ml-3 text-white">{"目標"}</span>
+          </span>
+        </Link>
+      ),
+    },
+    {
+      key: "4",
+      label: (
+        <Link href="/">
+          <span className="flex py-3 w-[256px] pl-5 rounded-lg">
+            <span className="ml-3 text-white">{"選択中のコース"}</span>
+          </span>
+        </Link>
+      ),
+    },
+    {
+      key: "5",
+      label: (
+        <Link href="/column">
+          <span className="flex py-3 w-[256px] pl-5 rounded-lg">
+            <span className="ml-3 text-white">{"コラム一覧"}</span>
+          </span>
+        </Link>
+      ),
+    },
+    {
+      key: "6",
+      label: (
+        <Link href="/">
+          <span className="flex py-3 w-[256px] pl-5 rounded-lg">
+            <span className="ml-3 text-white">{"設定"}</span>
           </span>
         </Link>
       ),
@@ -140,15 +136,23 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
                   height={32}
                   className="mr-4"
                 />
-                <div
-                  className={classnames("font-semibold", {
-                    active: pathname === path,
-                  })}
-                >
+                <div className={pathname === path ? " text-primary-500" : ""}>
                   {title}
                 </div>
               </Link>
             ))}
+
+            <StyledSelectWrapper menu={{ items }} trigger={["click"]}>
+              <a onClick={(e) => e.preventDefault()}>
+                <Image
+                  src={"/svgs/icon_menu.svg"}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className=""
+                />
+              </a>
+            </StyledSelectWrapper>
           </div>
         </div>
       </div>

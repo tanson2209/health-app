@@ -1,22 +1,15 @@
 import FoodCard from "@/components/FoodCard";
+import { useHompageListFood, useHompageSelector } from "@/store/homepage";
 import { FoodDetail } from "@/types/homepage";
 import React, { memo } from "react";
 
 const ListFood = memo(() => {
-  const list: FoodDetail[] = [
-    { titleBottom: "05.21.Dinner", img: "/images/food-banner.png" },
-    { titleBottom: "05.21.Dinner", img: "/images/food-banner.png" },
-    { titleBottom: "05.21.Dinner", img: "/images/food-banner.png" },
-    { titleBottom: "05.21.Dinner", img: "/images/food-banner.png" },
-    { titleBottom: "05.21.Dinner", img: "/images/food-banner.png" },
-    { titleBottom: "05.21.Dinner", img: "/images/food-banner.png" },
-    { titleBottom: "05.21.Dinner", img: "/images/food-banner.png" },
-    { titleBottom: "05.21.Dinner", img: "/images/food-banner.png" },
-  ];
+  const listFood: FoodDetail[] = useHompageListFood();
+
   return (
     <div className="grid grid-cols-4 gap-2 w-full container">
-      {list.map((item) => (
-        <FoodCard data={item} />
+      {listFood?.map((item, key) => (
+        <FoodCard key={key} data={item} />
       ))}
     </div>
   );

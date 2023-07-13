@@ -1,72 +1,17 @@
 import DairyCard from "@/components/DairyCard";
-import { DiaryDetail } from "@/types/dairy";
+import { useMyRecordListDiary } from "@/store/my-record";
+import { DiaryDetail } from "@/types/diary";
 import React, { memo } from "react";
 
 const MyDiary = memo(() => {
-  const list: DiaryDetail[] = [
-    {
-      timeDay: "2021.05.21",
-      timeHour: "23:25",
-      title: "私の日記の記録が一部表示されます。",
-      detail:
-        "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテトテキストテキストテキストテキス",
-    },
-    {
-      timeDay: "2021.05.21",
-      timeHour: "23:25",
-      title: "私の日記の記録が一部表示されます。",
-      detail:
-        "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテトテキストテキストテキストテキス",
-    },
-    {
-      timeDay: "2021.05.21",
-      timeHour: "23:25",
-      title: "私の日記の記録が一部表示されます。",
-      detail:
-        "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテトテキストテキストテキストテキス",
-    },
-    {
-      timeDay: "2021.05.21",
-      timeHour: "23:25",
-      title: "私の日記の記録が一部表示されます。",
-      detail:
-        "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテトテキストテキストテキストテキス",
-    },
-    {
-      timeDay: "2021.05.21",
-      timeHour: "23:25",
-      title: "私の日記の記録が一部表示されます。",
-      detail:
-        "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテトテキストテキストテキストテキス",
-    },
-    {
-      timeDay: "2021.05.21",
-      timeHour: "23:25",
-      title: "私の日記の記録が一部表示されます。",
-      detail:
-        "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテトテキストテキストテキストテキス",
-    },
-    {
-      timeDay: "2021.05.21",
-      timeHour: "23:25",
-      title: "私の日記の記録が一部表示されます。",
-      detail:
-        "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテトテキストテキストテキストテキス",
-    },
-    {
-      timeDay: "2021.05.21",
-      timeHour: "23:25",
-      title: "私の日記の記録が一部表示されます。",
-      detail:
-        "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテトテキストテキストテキストテキス",
-    },
-  ];
+  const listFood: DiaryDetail[] = useMyRecordListDiary();
+  // const listFood: FoodDetail[] = home.listFood;
   return (
     <div className="container w-full">
       <div className="text-xl text-dark-500">MY DIARY</div>
       <div className="grid grid-cols-4  gap-3 w-full ">
-        {list.map((item) => (
-          <DairyCard data={item} />
+        {listFood.map((item, key) => (
+          <DairyCard data={item} key={key} />
         ))}
       </div>
     </div>

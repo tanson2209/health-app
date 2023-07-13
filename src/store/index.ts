@@ -18,6 +18,9 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import { updateVersion } from "./global/actions";
 import user from "./user";
+import homepage from "./homepage";
+import myRecord from "./my-record";
+import column from "./column";
 
 const PERSISTED_KEYS: string[] = ["user"];
 
@@ -33,6 +36,9 @@ const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
     user,
+    homepage,
+    myRecord,
+    column,
   })
 );
 

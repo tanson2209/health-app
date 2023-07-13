@@ -38,6 +38,7 @@ export const userSlide = createSlice({
 // Other code such as selectors can use the imported `RootState` type
 export const useUserSelector = () =>
   useSelector((state: RootState) => state.user);
+
 export const useUserAction = () => {
   const { setUser, resetUser: resetUserAction } = userSlide.actions;
   const dispatch = useAppDispatch();
