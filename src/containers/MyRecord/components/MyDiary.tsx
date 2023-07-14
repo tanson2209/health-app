@@ -11,7 +11,7 @@ const MyDiary = memo(() => {
       <div className="text-xl text-dark-500">MY DIARY</div>
       <div className="grid grid-cols-4  gap-3 w-full ">
         {listFood.map((item, key) => (
-          <DairyCard data={item} key={key} />
+          <DairyCard data={item} key={`${"diary"}-${key}`} />
         ))}
       </div>
     </div>

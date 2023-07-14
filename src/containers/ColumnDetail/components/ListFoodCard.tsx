@@ -10,7 +10,7 @@ const ListFoodCard = memo(() => {
   return (
     <div className="grid grid-cols-4 gap-x-2 gap-y-8 w-full container">
       {listFood.map((item, key) => (
-        <ColCard item={item} key={key} />
+        <ColCard item={item} key={`${"col"}-${key}`} />
       ))}
     </div>
   );

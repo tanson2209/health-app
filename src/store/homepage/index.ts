@@ -5,13 +5,17 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { FoodDetail } from "@/types/homepage";
 
 // Define a type for the slice state
+
+export type Filter = "Morning" | "Lunch" | "Dinner" | "Snack";
 interface HomepageState {
   listFood?: FoodDetail[];
+  filter: Filter;
 }
 
 // Define the initial state using that type
 const initialState: HomepageState = {
   listFood: undefined,
+  filter: "Morning",
 };
 
 export const homepageSlide = createSlice({
@@ -30,6 +34,9 @@ export const homepageSlide = createSlice({
           : action.payload.list;
       }
     },
+    changeFilter: (state, action: PayloadAction<Filter>) => {
+      state.filter = action.payload;
+    },
   },
 });
 
@@ -38,16 +45,22 @@ export const useHompageSelector = () =>
   useSelector((state: RootState) => state.homepage);
 export const useHompageListFood = () =>
   useSelector((state: RootState) => state.homepage.listFood);
+export const useFilterSelector = () =>
+  useSelector((state: RootState) => state.homepage.filter);
 
 export const useHompageAction = () => {
-  const { addDataFoods } = homepageSlide.actions;
+  const { addDataFoods, changeFilter } = homepageSlide.actions;
   const dispatch = useAppDispatch();
 
   const addDataFoodList = (list: FoodDetail[], first?: boolean) => {
     dispatch(addDataFoods({ list, first }));
   };
 
-  return { addDataFoodList };
+  const changeFilterFood = (filter: Filter) => {
+    dispatch(changeFilter(filter));
+  };
+
+  return { addDataFoodList, changeFilterFood };
 };
 
 export default homepageSlide.reducer;

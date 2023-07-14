@@ -35,7 +35,6 @@ const StyledSelectWrapper = styled(Dropdown)`
 
 const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
   const { pathname, asPath, query } = useRouter();
-  const { userInfo, tokens } = useUserSelector();
   const router = useRouter();
 
   const menu = [
@@ -58,7 +57,7 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
     {
       key: "2",
       label: (
-        <span className="flex py-3 w-[256px] pl-5 rounded-lg">
+        <span className="flex py-3 w-[256px] pl-5 border-t-[1px] border-[#b1b0b0]">
           <span className="ml-3 text-white">{"体重グラフ"}</span>
         </span>
       ),
@@ -67,7 +66,7 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
       key: "3",
       label: (
         <Link href="/">
-          <span className="flex py-3 w-[256px] pl-5 rounded-lg">
+          <span className="flex py-3 w-[256px] pl-5 border-t-[1px] border-[#b1b0b0]">
             <span className="ml-3 text-white">{"目標"}</span>
           </span>
         </Link>
@@ -77,7 +76,7 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
       key: "4",
       label: (
         <Link href="/">
-          <span className="flex py-3 w-[256px] pl-5 rounded-lg">
+          <span className="flex py-3 w-[256px] pl-5 border-t-[1px] border-[#b1b0b0]">
             <span className="ml-3 text-white">{"選択中のコース"}</span>
           </span>
         </Link>
@@ -87,7 +86,7 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
       key: "5",
       label: (
         <Link href="/column">
-          <span className="flex py-3 w-[256px] pl-5 rounded-lg">
+          <span className="flex py-3 w-[256px] pl-5 border-t-[1px] border-[#b1b0b0]">
             <span className="ml-3 text-white">{"コラム一覧"}</span>
           </span>
         </Link>
@@ -97,7 +96,7 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
       key: "6",
       label: (
         <Link href="/">
-          <span className="flex py-3 w-[256px] pl-5 rounded-lg">
+          <span className="flex py-3 w-[256px] pl-5 border-t-[1px] border-[#b1b0b0]">
             <span className="ml-3 text-white">{"設定"}</span>
           </span>
         </Link>

@@ -152,7 +152,9 @@ const MyExercise = memo(() => {
   return (
     <WrapTable className="bg-dark-500 container py-4 px-6">
       <div className="flex items-center">
-        <div className="mr-2">MY EXERCISE</div>
+        <div className="mr-4">
+          MY <br /> EXERCISE
+        </div>
         <div className="text-xl">2021.05.21</div>
       </div>
       <Table

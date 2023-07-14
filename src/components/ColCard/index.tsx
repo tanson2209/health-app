@@ -18,11 +18,13 @@ const ColCard = memo((props: Props) => {
   const { titleBottom, img, description, tags } = props.item;
   return (
     <div className="flex flex-col space-y-2">
-      <FoodCard data={{ titleBottom, img }} className="pb-[75%]" />
+      <FoodCard data={{ titleBottom, img }} className="pb-[60%]" />
       <WrapDiv className="text-dark-500">{description}</WrapDiv>
       <div className="flex">
-        {tags.map((i) => (
-          <div className="text-primary mr-2">#{i}</div>
+        {tags.map((i, key) => (
+          <div key={`${"colcard"}-${key}`} className="text-primary-400 mr-2">
+            #{i}
+          </div>
         ))}
       </div>
     </div>

@@ -23,7 +23,7 @@ const ListRecommended = memo(() => {
   return (
     <div className="grid grid-cols-4 container gap-8 w-full ">
       {list.map((item, key) => (
-        <RecommendCard {...item} key={key} />
+        <RecommendCard {...item} key={`${"rec"}-${key}`} />
       ))}
     </div>
   );

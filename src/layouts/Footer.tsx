@@ -34,12 +34,13 @@ const Footer = () => {
     <div className=" flex justify-center py-14 w-full bg-dark-600 ">
       <div className=" container w-full ">
         <div className="flex items-center w-full gap-x-12 lg:gap-x-14">
-          {list.map((item) => (
+          {list.map((item, key) => (
             <a
               target={"_blank"}
               rel="noreferrer"
               href={item.href}
               className=" text-sm text-center"
+              key={`${"footer"}-${key}`}
             >
               {item.title}
             </a>
