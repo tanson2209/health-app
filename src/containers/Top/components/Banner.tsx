@@ -16,6 +16,9 @@ const Banner = memo(() => {
     },
   ];
   const categories = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const categoriesWithTime = categories.map((item) => {
+    return `${item}月`;
+  });
   return (
     <div className="flex w-full bg-dark-600 h-[316px]">
       <div className="w-[40%] relative">
@@ -47,7 +50,7 @@ const Banner = memo(() => {
         </div>
       </div>
       <div className="w-[60%] h-[316px]">
-        <SampleLine series={series} categories={categories} />
+        <SampleLine series={series} categories={categoriesWithTime} />
       </div>
     </div>
   );
