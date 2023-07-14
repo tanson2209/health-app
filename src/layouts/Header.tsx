@@ -1,37 +1,8 @@
-import { Button, Dropdown, MenuProps, Modal, notification, Select } from "antd";
+import { Dropdown, MenuProps } from "antd";
 import classnames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-
-import { useUserSelector } from "@/store/user";
-import { CheckOutlined } from "@ant-design/icons";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-
-const HeaderStyled = styled.header`
-  /* .active {
-    color: #43e3ff;
-  }
-
-  .menu-item:hover {
-    color: #43e3ff;
-  } */
-`;
-
-const StyledSelectWrapper = styled(Dropdown)`
-  .ant-dropdown .ant-dropdown-menu {
-    background-color: black !important;
-    color: white;
-  }
-
-  .ant-dropdown .ant-dropdown-menu,
-  .ant-dropdown-menu-submenu .ant-dropdown-menu {
-    background-color: black !important;
-    color: white;
-  }
-`;
 
 const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
   const { pathname, asPath, query } = useRouter();
@@ -105,8 +76,8 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
   ];
 
   return (
-    <HeaderStyled
-      className={`flex h-[72px] w-full justify-center sticky top-0 z-10 bg-dark-600 ${
+    <div
+      className={`flex h-[72px] w-full justify-center sticky top-0 z-10 bg-dark-500 ${
         isFullWidth && "border-b border-solid border-light-200"
       }`}
     >
@@ -141,7 +112,7 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
               </Link>
             ))}
 
-            <StyledSelectWrapper menu={{ items }} trigger={["click"]}>
+            <Dropdown menu={{ items }} trigger={["click"]}>
               <a onClick={(e) => e.preventDefault()}>
                 <Image
                   src={"/svgs/icon_menu.svg"}
@@ -151,11 +122,11 @@ const Header = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
                   className=""
                 />
               </a>
-            </StyledSelectWrapper>
+            </Dropdown>
           </div>
         </div>
       </div>
-    </HeaderStyled>
+    </div>
   );
 };
 
