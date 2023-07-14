@@ -1,7 +1,3 @@
-# Fast Marketplace: eCommerce Platform Project
-
-Fast Marketplace is a case study of a eCommerce platform implemented using Next.js, TypeScript, Tailwind CSS, Redux, NextAuth.
-
 ## Tech Stack
 
 - Next.js
@@ -9,10 +5,7 @@ Fast Marketplace is a case study of a eCommerce platform implemented using Next.
 - TypeScript
 - Redux
 - Tailwind CSS
-- NextAuth
-- Stripe Checkout
-- Webhooks
-- Firebase
+- Antd design
 
 ## Getting Started
 
